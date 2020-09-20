@@ -1,63 +1,32 @@
 <template>
-  <!-- <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <h1> 哈喽</h1>
-  </div> -->
-  <div class="container">
-	  
-	  <!-- 引入TheHeader组件 -->
-	  <div id="wrap">
-		  <TheHeader></TheHeader>
-	  </div>
-	  
-	  <br>
-	  <br>
-	  <br>
-	  
-	  <div class="jumbotron">
-		  <div class="container">
-			  <h1>哈喽哈喽</h1>
-			  <p>
-				  这是测试测试
-			  </p>
-			<p>
-				<a class="btn btn-primary btn-lg" href="http://www.bootcss.com/" role="button" target="_blank">
-					<!-- Learn more -->
-					<span class="glyphicon glyphicon-hand-right" aria-hidden="true">
-					</span>
-				</a>
-			</p>
-		  </div>
-		  
-	  </div>
-	  
+  <div id="wrap">
+	  <TheHeader></TheHeader>
+		<body class="container main-container">
+			<router-view></router-view>
+		</body>
+	  <TheFooter></TheFooter>
+  </div>
 
-  
-  <div class="jumbotron">
-	  <div class="container">
-		  <h1>fontawesome</h1>
-		  <p><i>aa这是斜体</i>这是解释说明</p>
-		  <p>
-			  <i class="fa fa-camera"></i>
-			  <i class="fa fa-camera fa-2x"></i>
-			  <i class="fa fa-camera fa-3x"></i>
-			  <i class="fa fa-camera fa-4x"></i>
-			  <i class="fa fa-camera fa-5x"></i>
-		  </p>
-	  </div>
-  </div>
-  
-  </div>
 </template>
 
 
 <script>
 import TheHeader from '@/components/layouts/TheHeader'
+import TheFooter from '@/components/layouts/TheFooter'
+import CsvCut from '@/views/CsvCut'
+import MesBoard from '@/views/MesBoard'
+import HomePage from '@/views/HomePage'
+import MacLearn from '@/views/MacLearn'
 
 export default {
   name: 'App',
   components: {
-	  TheHeader
+	  TheHeader,
+	  TheFooter,
+	  CsvCut,
+	  MesBoard,
+	  HomePage,
+	  MacLearn
   }
 }
 </script>
@@ -80,4 +49,11 @@ export default {
 	@import "~font-awesome/scss/font-awesome";
 	@import "./styles/main";
 	@import "./styles/extra";
+	
+	body {
+	    position: relative;
+	    min-height: 100%;
+	    padding-bottom: 0px;
+	    box-sizing: border-box;
+	}
 </style>

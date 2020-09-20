@@ -1,19 +1,34 @@
 <template>
   <div class="navbar navbar-default topnav">
-	  <div class="container">
+	  <div class="container ">
+		  <button type="button" class="navbar-toggle" @click="toggleNav">
+		  	<span class="sr-only">Toggle navigation</span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		  </button>
+		  
+		  <router-link to="/csvcut"></router-link>
+		  
 		  <div class="navbar-header">
-			  <a href="./" class="navbar-brand">
+			  <router-link to="/" class="navbar-brand">
+				  <span class="title">{{ logo.title }}</span>
 				  <img v-bind:src="logo.src" v-bind:alt="logo.title"  height="20px"/>
-			  </a>
+			  </router-link>
 		  </div>
 	  <!-- 导航栏 -->
-		  <div id="top-navbar-collapse" class="collapse navbar-collapse">
+		  <div id="top-navbar-collapse" v-bind:class="['collapse','navbar-collapse',{ in:showCollapsedNav }]">
 			  <ul class="nav navbar-nav">
-				  <li v-for="item in navList">
-					  <a href="#">{{ item }}</a>
+				  <li v-for="(item,index) in navList" v-bind:class="{active: index===activeNavIndex}">
+					  <a  pointer-events: none  @click="changeNavIndex(index)">
+						  <router-link v-bind:to="item.link"  > {{ item.page }}</router-link>
+					  </a>
 				  </li>
 			  </ul>
 		  </div>
+		  
+
+		  
 	  </div>
   </div>
 </template>
@@ -25,20 +40,52 @@ export default {
 	  return {
 		  logo:{
 			  src: 'logo.png',
-			  title:"工具集"
+			  title:"tools"
 		  },
-		  navList:["数据文件切割","机器学习应用","在线建议留言"]
+		  navList:[
+					{
+					  page:"首页",
+					  link:'/'
+					},
+					{
+						page:"文件切割",
+						link:'/csvcut',
+					},
+					{
+						page:"机器学习",
+						link:'/maclearn',
+					},
+					{
+						page:"建议留言",
+						link:'/mesboard',
+					},
+				],
+		  activeNavIndex: 0,
+		  showCollapsedNav: false
 	  }
 	  },
   beforeCreate(){
 	  console.log('这是创建前');
+  },
+  methods:{
+	  changeNavIndex(index){
+		  this.activeNavIndex = index
+	  },
+	  toggleNav(){
+		  console.log(this.showCollapsedNav);
+		  this.showCollapsedNav = !this.showCollapsedNav;
+	  }
   }
 }
 </script>
 
 
 <style scoped>
+
 .title{
 	display: none;
+}
+.active > a {
+	background: rgba(0,0,0,.03);
 }
 </style>
