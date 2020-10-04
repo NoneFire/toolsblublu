@@ -1,9 +1,9 @@
 <template>
   <div id="wrap">
 	  <TheHeader></TheHeader>
-		<body class="container main-container">
+		<content class="container main-container">
 			<router-view></router-view>
-		</body>
+		</content>
 	  <TheFooter></TheFooter>
   </div>
 
@@ -45,15 +45,18 @@ export default {
 	$icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
 	$fa-font-path: "~font-awesome/fonts/";
 
+
 	@import "~bootstrap-sass/assets/stylesheets/_bootstrap";
 	@import "~font-awesome/scss/font-awesome";
-	@import "./styles/main";
-	@import "./styles/extra";
 	
-	body {
-	    position: relative;
-	    min-height: 100%;
-	    padding-bottom: 0px;
-	    box-sizing: border-box;
-	}
+	// @import "./styles/main";
+	// @import "./styles/extra";
+	
+
+	body { 
+			padding-top: 70px; 
+			padding-bottom: 70px;
+			background-color:rgb(246,246,246);
+		}
+
 </style>

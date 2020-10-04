@@ -1,7 +1,7 @@
 
 <template>
-  <footer class="footer">
-    <div >
+  <nav class="navbar navbar-default navbar-fixed-bottom" >
+    <div class="container">
           <div class="links">
             <a v-for="item in contacts"  :href="item.link" >
               {{ item.title }}
@@ -17,7 +17,7 @@
 
     </div>
 
-  </footer>
+  </nav>
 </template>
 
 <script>
@@ -60,14 +60,12 @@
 	}
 	.copyright{
 		text-align: center;
-		line-height: 0rem;
+		line-height: 2rem;
+		color: gray;
 	}
-	.footer {
-	  position: absolute;
-	  width: 100%;
-	  bottom: 0;
-	  height: 4rem;
-	  background-color: lightgray;
-	  border-radius: 0.3rem;
+	.navbar-fixed-bottom{
+		background-color: rgb(255, 255, 255);
 	}
+
+
 </style>

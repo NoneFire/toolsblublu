@@ -1,36 +1,29 @@
 <template>
-  <div class="navbar navbar-default topnav">
-	  <div class="container ">
-		  <button type="button" class="navbar-toggle" @click="toggleNav">
-		  	<span class="sr-only">Toggle navigation</span>
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-		  </button>
-		  
-		  <router-link to="/csvcut"></router-link>
-		  
+  <nav class="navbar navbar-default navbar-fixed-top">
+	  <div class="container">
+
+<!-- 图片logo位置 -->
 		  <div class="navbar-header">
-			  <router-link to="/" class="navbar-brand">
+			  <router-link to="/" class="navbar-header navbar-brand">
 				  <span class="title">{{ logo.title }}</span>
 				  <img v-bind:src="logo.src" v-bind:alt="logo.title"  height="20px"/>
 			  </router-link>
 		  </div>
-	  <!-- 导航栏 -->
-		  <div id="top-navbar-collapse" v-bind:class="['collapse','navbar-collapse',{ in:showCollapsedNav }]">
+		  
+	  <!-- 导航栏内容 -->
+		  <div id="top-navbar-collapse" v-bind:class="['collapse','navbar-collapse' ] ">
 			  <ul class="nav navbar-nav">
-				  <li v-for="(item,index) in navList" v-bind:class="{active: index===activeNavIndex}">
-					  <a  pointer-events: none  @click="changeNavIndex(index)">
+				  <li v-for="(item,index) in navList" @click="changeNavIndex(index)" v-bind:class="{active: index===activeNavIndex}">
+
 						  <router-link v-bind:to="item.link"  > {{ item.page }}</router-link>
-					  </a>
+
 				  </li>
 			  </ul>
 		  </div>
 		  
 
-		  
 	  </div>
-  </div>
+  </nav>
 </template>
 
 <script>
@@ -69,12 +62,10 @@ export default {
   },
   methods:{
 	  changeNavIndex(index){
-		  this.activeNavIndex = index
+		  // console.log("这是改变前",index);
+		  this.activeNavIndex = index;
+		  // console.log("这是改变后",index);
 	  },
-	  toggleNav(){
-		  console.log(this.showCollapsedNav);
-		  this.showCollapsedNav = !this.showCollapsedNav;
-	  }
   }
 }
 </script>
@@ -85,7 +76,8 @@ export default {
 .title{
 	display: none;
 }
-.active > a {
-	background: rgba(0,0,0,.03);
+.navbar-fixed-top{
+	background-color: white;
 }
+
 </style>
