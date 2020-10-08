@@ -11,17 +11,17 @@ const routes = [
 	},
 	{
 		path:'/mesboard',
-		name:'/MesBoard',
+		name:'MesBoard',
 		component:() => import('@/views/MesBoard')
 	},
 	{
 		path:'/',
-		name:'/HomePage',
+		name:'HomePage',
 		component:() => import('@/views/HomePage')
 	},
 	{
 		path:'/maclearn',
-		name:'/MacLearn',
+		name:'MacLearn',
 		component:() => import('@/views/MacLearn')
 	}
 ]
