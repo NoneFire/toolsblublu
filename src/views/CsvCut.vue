@@ -20,6 +20,13 @@
 		<div align="center">
 		  <button type="button" class="uploadfile" @click="uploadFiles">上传文件</button>
 		</div>
+        
+            <title>Upload File</title>
+            <h1>图片上传</h1>
+            <form method=post enctype=multipart/form-data>
+                 <input type=file name=photo>
+                 <input type=submit value=上传 @click="uploadFiles">
+            </form>
 
 	</div>
 </template>
@@ -34,8 +41,7 @@
 		},
 		methods:{
 			uploadFiles(){
-				
-				this.uploadmes = !this.uploadmes
+				alert("11")
 			},
 			
 		},
